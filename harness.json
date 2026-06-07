@@ -1,0 +1,20 @@
+{
+  "module": "github.com/example/go-backend-starter",
+  "layers": [
+    {"pattern": "internal/types", "layer": 0, "name": "types"},
+    {"pattern": "internal/domain", "layer": 0, "name": "domain"},
+    {"pattern": "pkg/types", "layer": 0, "name": "types"},
+    {"pattern": "internal/utils", "layer": 1, "name": "utils"},
+    {"pattern": "pkg/utils", "layer": 1, "name": "utils"},
+    {"pattern": "internal/config", "layer": 2, "name": "config"},
+    {"pattern": "internal/core", "layer": 3, "name": "core"},
+    {"pattern": "internal/service", "layer": 3, "name": "service"},
+    {"pattern": "internal/usecase", "layer": 3, "name": "usecase"},
+    {"pattern": "internal/handler", "layer": 4, "name": "handler"},
+    {"pattern": "internal/api", "layer": 4, "name": "api"},
+    {"pattern": "cmd", "layer": 4, "name": "cmd"},
+    {"pattern": "internal/cli", "layer": 4, "name": "cli"}
+  ],
+  "ignoreDirs": ["vendor", "third_party", "tmp", "scripts", ".claude"],
+  "allowCyclic": []
+}

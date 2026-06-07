@@ -1,0 +1,4 @@
+# 临时缓存目录,所有内容默认不进 git
+*
+!.gitignore
+!README.md

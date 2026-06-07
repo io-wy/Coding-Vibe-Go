@@ -1,0 +1,7 @@
+{
+  "hooks": {
+    "sessionStart": {
+      "recipe": "If the file claude.local.md exists in the project root directory (same directory as CLAUDE.md), Read it immediately. Its contents supplement CLAUDE.md — local preferences override CLAUDE.md defaults. If the file does not exist, skip silently and proceed with only CLAUDE.md."
+    }
+  }
+}

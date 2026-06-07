@@ -1,7 +1,8 @@
 ---
 name: knowledge-loop
 version: 1.0.0
-description: 知识管理闭环。从踩坑记录到约束规则、到 Skill、到自动化、到无感知的五级进化机制。确保项目知识持续沉淀且有效运转。Triggered during pitfall review, skill evolution, knowledge audit, or when user says "知识闭环/knowledge loop/进化/evolve/沉淀知识/knowledge management/知识管理/规则提炼/skill 进化/level up".
+user-invocable: false
+description: 知识管理闭环。从踩坑记录到约束规则、到 Skill、到自动化、到无感知的五级进化机制。确保项目知识持续沉淀且有效运转。Auto-triggered during PIT review and skill evolution audit.
 ---
 
 # Knowledge Loop

@@ -1,7 +1,8 @@
 ---
 name: false-positive-tracking
 version: 1.0.0
-description: 误报追踪与 Review 质量度量。记录 Code Review 中的误报，计算真阳性/假阳性比率，定期调优审查规则。Triggered after adversarial-review, or when user says "误报/false positive/review quality/审查质量/误报率/review 准确率/调优审查/tune review/FP rate".
+user-invocable: false
+description: 误报追踪与 Review 质量度量。记录 Code Review 中的误报，计算真阳性/假阳性比率，定期调优审查规则。Auto-triggered after adversarial-review completes.
 ---
 
 # False Positive Tracking

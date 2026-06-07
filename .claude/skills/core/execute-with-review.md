@@ -1,7 +1,8 @@
 ---
 name: execute-with-review
 version: 1.1.0
-description: 按 Task 列表执行开发，每个 Task 走 7 步流程（读取→实现→Spec 审查→质量审查→编译→测试→提交），完成后自动执行 change-impact-scan 防改不全。Triggered after plan is confirmed, or when user says "开始执行/run tasks/execute/start/跑任务/实施/implement".
+user-invocable: false
+description: 按 Task 列表执行开发，每个 Task 走 9 步流程（读取→实现→Spec 审查→质量审查→编译→测试→提交），完成后自动执行 change-impact-scan 防改不全。Auto-triggered after plan is confirmed.
 ---
 
 # Execute with Review

@@ -1,0 +1,48 @@
+# Binaries
+bin/
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Test artifacts
+*.test
+*.out
+coverage.html
+coverage.out
+
+# Go
+vendor/
+go.work
+go.work.sum
+
+# Environment
+.env
+.env.local
+.env.*.local
+*.secret
+configs/config.yaml
+configs/prod.yaml
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+tmp/
+*.tmp
+
+# Documentation cache (Skill auto-write, see CLAUDE.md)
+docs-tmp/*
+!docs-tmp/.gitignore
+!docs-tmp/README.md
+
+# Local overrides (per-user, not committed)
+claude.local.md

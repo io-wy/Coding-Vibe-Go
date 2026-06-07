@@ -1,7 +1,8 @@
 ---
 name: spec-checkpoint
 version: 1.1.0
-description: 阶段性质量门禁。在 brainstorming→plan→execute 全流程的 7 个关键节点（需求理解→代码探索→方案设计→Task 计划→代码实现→测试→提交），强制等待 io-wy 确认后才进入下一阶段。Triggered at each phase transition, or when user says "checkpoint/门禁/检查点/确认/review phase".
+user-invocable: false
+description: 阶段性质量门禁。在 brainstorming→plan→execute 全流程的 7 个关键节点，强制等待 io-wy 确认后才进入下一阶段。Auto-triggered at each phase transition within the v1 workflow.
 ---
 
 # Spec Checkpoint
