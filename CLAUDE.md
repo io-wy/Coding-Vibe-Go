@@ -199,6 +199,8 @@ make harness-audit # 0-100 分健康度
 | `docs/specs/` | 规格工件（spec 体系） | ✅ |
 | `.claude/skills/core/` | 核心 Skill（8 个，始终加载） | ✅ |
 | `.claude/skills/plugins/` | 插件 Skill（11 个，按需触发） | ✅ |
+| `.claude/agents/` | 审查子代理（5 个分维度 reviewer，由 /review-pr 并行 spawn） | ✅ |
+| `.claude/commands/` | 项目级 slash 命令（/review-pr） | ✅ |
 | `templates/init/` | 项目骨架模板（make init-* 展开） | ✅ |
 | `templates/global-skills/` | 全局 Skill（建议装到 ~/.claude/skills/） | ✅ |
 
@@ -229,6 +231,11 @@ make harness-audit # 0-100 分健康度
 | Core | `.claude/skills/core/` | 8 | 始终 |
 | Plugins | `.claude/skills/plugins/` | 11 | 按需 |
 | Global | `templates/global-skills/` | 6 | 全局安装一次 |
+
+除 Skill 外，项目还提供两类协作原语：
+
+- **审查子代理**（`.claude/agents/`，5 个）：security / code-quality / performance / test-coverage / documentation 五个分维度 reviewer，各自独立上下文，由 `/review-pr` 或 `coordinator-delegation` 并行 spawn。与 `adversarial-review`（跨模型交叉）互补——agents 管「PR 合并前分维度穷尽审查」，adversarial-review 管「开发中跨模型自查」。
+- **slash 命令**（`.claude/commands/`）：`/review-pr <n>` 编排上述 5 个子代理审查 PR 并回评。
 
 Skills 索引见 `.claude/skills/README.md`，工作流选择见 `docs-ref/workflow-bridge.md`。
 新手教程见 `claude.template.md`。

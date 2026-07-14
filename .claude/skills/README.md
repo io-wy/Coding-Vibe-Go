@@ -1,6 +1,6 @@
 # Skills 索引
 
-> 17 个 skill（8 core + 9 plugin）自动加载；7 个已隐藏（`user-invocable: false`）；2 个轻量 slash-command；6 个全局 skill 建议装到 `~/.claude/skills/`。
+> 17 个 skill（8 core + 9 plugin）自动加载；7 个已隐藏（`user-invocable: false`）；2 个轻量 slash-command；6 个全局 skill 建议装到 `~/.claude/skills/`。另含 5 个审查子代理（`agents/`）+ `/review-pr` 命令（`commands/`）。
 
 ## Slash-Command 速查
 
@@ -10,6 +10,7 @@
 |------|--------|
 | `/brainstorming` | 新功能/修bug/重构 前先探代码出方案 |
 | `/review` 或 `/adversarial-review` | 代码审查（双模型交叉验证） |
+| `/review-pr` `<n>` | 5 个子代理并行审查 PR 并回评 |
 | `/test` 或 `/test-strategy` | 写测试 / 测试策略 |
 | `/spec` `<name>` | 创建规格工件（L1/L2/L3） |
 | `/spec-do` `<slug>` | 实现规格中的任务 |
@@ -57,6 +58,22 @@
 | `false-positive-tracking` | adversarial-review 后 | 误报追踪，调优审查规则 |
 | `knowledge-loop` | PIT 审查/skill 进化时 | PIT→规则→Skill→自动化 五级进化 |
 | `harness-go` | 层级检查/架构检查 | lint-deps + lint-quality + verify-action + audit |
+
+---
+
+## 审查子代理（agents/·5 个）
+
+`.claude/agents/` 下的分维度 reviewer，各自独立上下文，由 `/review-pr` 或 `coordinator-delegation` 并行 spawn。
+
+| Agent | 维度 |
+|-------|------|
+| `security-code-reviewer` | OWASP / 注入 / 鉴权 / 加密 / 竞态 |
+| `code-quality-reviewer` | 可读性 / 错误处理 / Go 惯例（C-01~C-10） |
+| `performance-reviewer` | 算法复杂度 / N+1 / 资源泄漏 |
+| `test-coverage-reviewer` | 覆盖缺口 / 测试质量 / 边界 |
+| `documentation-accuracy-reviewer` | 注释 / README / API 文档准确性 |
+
+**定位**：与 `adversarial-review`（跨模型交叉验证）互补——agents 管「PR 合并前分维度穷尽审查」，adversarial-review 管「开发中跨模型自查」。编排入口：`/review-pr <n>`（`commands/`）。
 
 ---
 
